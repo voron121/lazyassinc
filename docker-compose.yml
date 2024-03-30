@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  server:
+    container_name: redmine_telegram_bot
+    build: docker/app
+    restart: always
+    working_dir: /var/www/app.loc
+    extra_hosts:
+      - app.loc:127.0.0.1
+    volumes:
+      - ./public/:/var/www/app.loc
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT}
+    ports:
+      - 80:80
+    networks:
+      default:
+        aliases:
+          - app_network
+
+  memcached:
+    container_name: redmine_memcached
+    restart: unless-stopped
+    image: bitnami/memcached:1.6.20
+    ports:
+      - 11211:11211
+    networks:
+      default:
+        aliases:
+          - app_network
+
+networks:
+  default:
+    external:
+      name: app_network
