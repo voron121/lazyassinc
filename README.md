@@ -111,6 +111,11 @@ just a visiting http://app.loc
 - [PHP Telegram Bot Api Documentation](https://packagist.org/packages/telegram-bot/api)
 
 ---
+
+### Secret demo:
+[Demo](http://lazyassinc.vv.dp.ua/)
+
+---
 ## P.S.:
 No tech support available. 
 If something doesn't work, just use Google and the error message text :)
