@@ -54,10 +54,13 @@ function sendTelegramMessage()
             }
         },
         success: function(response) {
-            console.log('success');
+            showAlert(response.message, response.status, 'telegramMessageAlert');
+            if ('success' === response.status) {
+                $('.js-send-telegram-message').prop('disabled', true);
+            }
         },
         error: function (response) {
-            console.log('error');
+            showAlert(response.message, response.status, 'telegramMessageAlert');
         }
     });
 }
@@ -158,11 +161,36 @@ function removeItemFromToDoList()
     return;
 }
 
+/**
+ * Processed alert message
+ * @param message
+ * @param status
+ * @param position
+ */
+function showAlert(message, status, position)
+{
+    const type = status === 'success' ? 'success' : 'warning';
+    const alertPlaceholder = document.getElementById(position)
+    const wrapper = document.createElement('div')
+    document.getElementById(position).innerHTML = "";
+    wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('');
+    alertPlaceholder.append(wrapper)
+}
+
 window.addEventListener('load', function ()
 {
-    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl)
+    })
+    document.getElementById('messageGeneratorModal').addEventListener('hide.bs.modal', () => {
+        document.getElementById('telegramMessageAlert').innerHTML = "";
+        $('.js-send-telegram-message').prop('disabled', false);
     })
     $(document).on('click', '.add-into-list', addTaskIntoToDoList);
     $(document).on('click', '.remove', removeItemFromToDoList);

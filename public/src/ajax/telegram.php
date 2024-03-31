@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 use App\Config;
@@ -16,10 +18,16 @@ use App\Models\TelegramMessageGenerator;
  */
 
 try {
+    $response = ['status' => 'error', 'message' => ''];
     $bot = new BotApi(Config::get('telegramBotToken'));
     $message = (new TelegramMessageGenerator($_POST))->getMessage();
     $bot->sendMessage(Config::get('telegramChatId'), $message, 'HTML');
-    exit('success');
-} catch (Throwable $throwable) {
-    exit($throwable->getMessage());
+    $response['status'] = 'success';
+    $response['message'] = 'Message successfully sent!';
+    echo json_encode($response);
+    exit;
+} catch (\Throwable $throwable) {
+    $response['message'] = $throwable->getMessage();
+    echo json_encode($response);
+    exit;
 }

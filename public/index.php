@@ -65,7 +65,7 @@ require_once __DIR__ . '/template/layouts/header.php';
         </div>
         <div class="col pe-4">
             <div class="col pe-2 text-end">
-                <button type="button" class="btn btn-sm btn-success generate-message-preview" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-sm btn-success generate-message-preview" data-bs-toggle="modal" data-bs-target="#messageGeneratorModal">
                     <i class="bi bi-chat-square-text-fill"></i>
                     Generate message
                 </button>
