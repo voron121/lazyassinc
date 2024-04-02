@@ -94,13 +94,17 @@ ENVIRONMENT=PRODUCTION
 
 If everything's is ok - you can open this super-duper cool things
 just a visiting http://app.loc 
+
 ---
+
 ### How to get Telegram channel ID (for private channels):
 - Step 1: Add your bot to your Telegram channel.
 - Step 2: Send any message in your Telegram channel from any client.
 - Step 3: Visit https://api.telegram.org/bot<BOT_TOKEN>/getUpdates (replace <BOT_TOKEN> with your actual Telegram bot token).
 - Step 4: Copy the channel_id from the response.
+
 ---
+
 ## Useful links:
 - [All answers](https://google.com)
 - [Docker Documentation](https://docs.docker.com/)
@@ -111,6 +115,15 @@ just a visiting http://app.loc
 - [PHP Telegram Bot Api Documentation](https://packagist.org/packages/telegram-bot/api)
 
 ---
+
+### Secret demo:
+[Demo](http://lazyassinc.vv.dp.ua/)
+
+Login: demo <br>
+Password: demo1234
+
+---
+
 ## P.S.:
 No tech support available. 
 If something doesn't work, just use Google and the error message text :)
