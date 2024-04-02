@@ -1,0 +1,31 @@
+<?php
+
+namespace App;
+
+/**
+ * Configuration example file.
+ * For using should been renamed into Config.php
+ * Each param is private field.
+ */
+class Config
+{
+    private static string $redmineHostUrl = '';
+
+    private static string $redmineApiKey = '';
+
+    private static string $telegramBotToken = '';
+
+    private static string $telegramChatId = '';
+
+    private static string $memcachedHost = 'memcached';
+
+    private static string $memcachedPort = '11211';
+
+    public static function get(string $param)
+    {
+        if (!self::${$param}) {
+            throw new \Exception('Param ' . $param . ' not found!');
+        }
+        return self::${$param};
+    }
+}

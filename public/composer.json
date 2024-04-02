@@ -1,0 +1,21 @@
+{
+    "name": "app/app",
+    "description": "Pet project. Simple bot for redmine CRM",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vadim",
+            "email": "no-reply@nowhere.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "kbsali/redmine-api": "v2.x-dev",
+        "longman/telegram-bot": "^0.82.0"
+    }
+}
