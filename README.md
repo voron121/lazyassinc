@@ -1,7 +1,7 @@
 ## Hello
 
-This is a simple pet project which was born because I am so lazy ass 
-to write messages by hands 
+This is a simple pet project which was born because I am so lazy ass
+to write messages by hands
 
 ## What this think is doing?
 
@@ -10,12 +10,12 @@ This project displays two lists of tasks from the Redmine task tracker:
 1. The first list includes tasks that were changed either today or last Friday (tasks worked on today).
 2. The second list contains all tasks except those changed today or last Friday (tasks not worked on today).
 
-You can add any task to the list of tasks worked on yesterday or 
-to the list of tasks to be worked on tomorrow. 
+You can add any task to the list of tasks worked on yesterday or
+to the list of tasks to be worked on tomorrow.
 You can then generate a message to send to a Telegram channel.
 
-Yep, that's pretty much it for now. Maybe in the future, 
-I'll add some AI functionality  like improving comments using AI, 
+Yep, that's pretty much it for now. Maybe in the future,
+I'll add some AI functionality  like improving comments using AI,
 but that's not guaranteed at all.
 
 ## How to Use or RTFM (Read the Fucking Manual):
@@ -33,8 +33,8 @@ To send the message to Telegram, click the button in the modal window.
 ## Installation
 
 ### Notice:
-This brief instruction is only for deploying the project on a local machine. 
-If you want to use it on a web server, you'll need to deal with some 
+This brief instruction is only for deploying the project on a local machine.
+If you want to use it on a web server, you'll need to deal with some
 domain magic. But that's a whole different journey with black jack
 and courtesans.
 
@@ -72,7 +72,7 @@ Add the following line to your machine's hosts file:
 - Rename the file public/src/Config.php.example to public/src/Config.php.
 - Enter your credentials into the file.
 
-### Step Five: .ENV (Yep, it's not so fast) 
+### Step Five: .ENV (Yep, it's not so fast)
 In the project root directory you can change ENVIRONMENT variable value in file .env
 to use test or production environment.
 By default, value of variable ENVIRONMENT is TEST. This is means that you will
@@ -93,7 +93,7 @@ ENVIRONMENT=PRODUCTION
 ### Enjoy
 
 If everything's is ok - you can open this super-duper cool things
-just a visiting http://app.loc 
+just a visiting http://app.loc
 
 ---
 
@@ -125,6 +125,5 @@ Password: demo1234
 ---
 
 ## P.S.:
-No tech support available. 
+No tech support available.
 If something doesn't work, just use Google and the error message text :)
-
