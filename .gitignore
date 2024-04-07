@@ -1,3 +1,4 @@
 /public/vendor/
 .idea/
 /public/src/Config.php
+/public/logs/*.log

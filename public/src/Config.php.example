@@ -23,6 +23,8 @@ class Config
 
     private static string $messagesScheduledQueue = 'scheduledQueue';
 
+    private static string $logsDir = __DIR__ . '/../logs/';
+
     public static function get(string $param)
     {
         if (!self::${$param}) {
