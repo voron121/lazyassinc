@@ -85,10 +85,10 @@ class TaskListController
             $list[] = [
                 'id' => $task['id'],
                 'name' => $task['subject'],
-                'author' => $task['author'],
+                'author' => $task['author']['name'],
                 'status' => $task['status']['name'],
                 'url' => $this->getTrackerIssuesUrl() . $task['id'],
-                'description' => $task['description']
+                'description' => htmlentities($task['description'])
             ];
         });
         return $list;

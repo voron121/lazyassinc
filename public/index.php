@@ -121,7 +121,7 @@ require_once __DIR__ . '/template/layouts/header.php';
                         </div>
                     </td>
                     <td>
-                        <div class="text-end">
+                        <div class="text-end" style="min-width: 265px;">
                             <div class="add-group-buttons">
                                 <button class="btn bg-body-secondary btn-sm text-nowrap add-into-list" item-id="<?=$item['id']?>" list-id="yesterday" day="yesterday">
                                     <i class="bi bi-plus-square"></i>
@@ -181,7 +181,7 @@ require_once __DIR__ . '/template/layouts/header.php';
                         </div>
                     </td>
                     <td>
-                        <div class="text-end">
+                        <div class="text-end" style="min-width: 265px;">
                             <div class="add-group-buttons">
                                 <button class="btn bg-body-secondary btn-sm text-nowrap add-into-list" item-id="<?=$item['id']?>" list-id="yesterday" day="today">
                                     <i class="bi bi-plus-square"></i>
