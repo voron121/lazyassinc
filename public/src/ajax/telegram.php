@@ -23,16 +23,16 @@ try {
     $response = ['status' => 'error', 'message' => ''];
     $messages = $_POST['messages'];
     $schedule = $_POST['schedule'];
+    $message = (new TelegramMessageGenerator($messages))->getMessage();
 
     if ($schedule['isScheduler'] === 'true') {
         $memcached = Memcached::getInstance();
-        $scheduledQueue = $memcached->get('scheduledQueue') ?: [];
-        $scheduledQueue[$schedule['date']][$schedule['time']] = $messages;
-        $memcached->set('scheduledQueue', $scheduledQueue);
+        $scheduledQueue = $memcached->get(Config::get('messagesScheduledQueue')) ?: [];
+        $scheduledQueue[$schedule['date']][$schedule['time']] = $message;
+        $memcached->set(Config::get('messagesScheduledQueue'), $scheduledQueue);
         $response['status'] = 'success';
         $response['message'] = 'The message is scheduled for delivery on ' . $schedule['date'] . ' at ' . $schedule['time'];
     } else {
-        $message = (new TelegramMessageGenerator($messages))->getMessage();
         $telegram  = new Telegram(Config::get('telegramBotToken'));
         $request = Request::sendMessage([
             'chat_id' => Config::get('telegramChatId'),
