@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y \
     default-mysql-client \
     g++\
     libxml2-dev\
+    cron \
     libmagickwand-dev --no-install-recommends  \
     && rm -rf /var/lib/apt/lists/*
 

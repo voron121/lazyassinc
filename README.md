@@ -102,30 +102,7 @@ just a visiting http://app.loc
 To schedule messages, you must configure the scheduler.<br> 
 Scheduled messages are stored in Memcached.<br>
 To send messages according to the schedule, you'll need to configure a CLI script (cli/messages-scheduler.php) in a cron job.
-
-### For Docker container:
-
-Enter the Docker container:
-
-```bash
-docker exec -it redmine_telegram_bot bash
-```
-
-Then run the following command to add your cronjob:
-
-```bash
-crontab -e
-```
-
-Add your cronjob like this:
-
-```bash
-* * * * * php /var/www/app.loc/cli/messages-scheduler.php
-```
-
-### For other environment:
-
-Run the following command to add your cronjob:
+Run the following command to add your cronjob on the server:
 
 ```bash
 crontab -e
