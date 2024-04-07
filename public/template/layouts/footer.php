@@ -1,4 +1,10 @@
 <!-- Modal -->
+<style>
+    /* Custom styles for dark mode */
+    .top-line-dark {
+        border-top: 1px solid #343a40; /* Use the desired color for dark mode */
+    }
+</style>
 <div class="modal fade" id="messageGeneratorModal" tabindex="-1" aria-labelledby="messageGeneratorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -12,9 +18,23 @@
                     <div class="col-6 message-preview"></div>
                     <div class="col-6 hidden"></div>
                 </div>
+                <div class="row pt-3 top-line-dark">
+                    <div class="col-3 align-items-center">
+                        Date and time of publication:
+                    </div>
+                    <div class="col-3 align-items-center">
+                        <input type="date" name="schedule-date" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-3 align-items-center">
+                        <input type="time" name="schedule-time" class="form-control form-control-sm" step="3600">
+                    </div>
+                    <div class="col-3 align-items-center">
+                        <input class="form-check-input" type="checkbox" id="send-by-schedule">
+                        <label class="form-check-label" for="send-by-schedule">Published according to schedule</label>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-light btn-sm" data-dismiss="modal">Make better with AI (coming soon)</button>
                 <button type="button" class="btn btn-primary btn-sm js-send-telegram-message">
                     <i class="bi bi-send-fill"></i>
                     Send in telegram
