@@ -97,6 +97,47 @@ just a visiting http://app.loc
 
 ---
 
+### Sending messages with schedule
+
+To schedule messages, you must configure the scheduler.<br> 
+Scheduled messages are stored in Memcached.<br>
+To send messages according to the schedule, you'll need to configure a CLI script (cli/messages-scheduler.php) in a cron job.
+
+### For Docker container:
+
+Enter the Docker container:
+
+```bash
+docker exec -it redmine_telegram_bot bash
+```
+
+Then run the following command to add your cronjob:
+
+```bash
+crontab -e
+```
+
+Add your cronjob like this:
+
+```bash
+* * * * * php /var/www/app.loc/cli/messages-scheduler.php
+```
+
+### For other environment:
+
+Run the following command to add your cronjob:
+
+```bash
+crontab -e
+```
+
+Add your cronjob like this:
+
+```bash
+* * * * * /usr/local/bin/php path-to-project-on-server/public/cli/messages-scheduler.php
+```
+
+
 ### How to get Telegram channel ID (for private channels):
 - Step 1: Add your bot to your Telegram channel.
 - Step 2: Send any message in your Telegram channel from any client.
@@ -107,12 +148,13 @@ just a visiting http://app.loc
 
 ## Useful links:
 - [All answers](https://google.com)
-- [Docker Documentation](https://docs.docker.com/)
+- [Docker Documentation](https://docs.docker.com)
 - [Composer Documentation](https://getcomposer.org/doc/01-basic-usage.md)
-- [Redmine home page](https://www.redmine.org/)
+- [Redmine home page](https://www.redmine.org)
 - [Redmine API Documentation](https://www.redmine.org/projects/redmine/wiki/rest_api)
 - [Telegram Bot API PHP Lib Documentation](https://packagist.org/packages/longman/telegram-bot)
 - [PHP Telegram Bot Api Documentation](https://packagist.org/packages/telegram-bot/api)
+- [Crontab guru](https://crontab.guru)
 
 ---
 
