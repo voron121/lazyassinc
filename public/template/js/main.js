@@ -39,20 +39,31 @@ function generateMessage()
  */
 function sendTelegramMessage()
 {
+    const isScheduler = document.getElementById('send-by-schedule');
+    let data = {
+      'messages' : {
+          'yesterday' : {
+              'dayTitle' : $('#message-day-yesterday').text(),
+              'messages' : Messages.get('yesterday')
+          },
+          'today' : {
+              'dayTitle' : $('#message-day-today').text(),
+              'messages' : Messages.get('today')
+          }
+      },
+      'schedule' : {
+          'isScheduler' : isScheduler.checked ? true : false
+      }
+    };
+    if (isScheduler.checked) {
+        data.schedule.date = $('input[name=schedule-date]').val();
+        data.schedule.time = $('input[name=schedule-time]').val();
+    }
     $.ajax({
-        url: '/src/ajax/telegram.php',
-        type: 'post',
-        dataType: 'json',
-        data: {
-            'yesterday' : {
-                'dayTitle' : $('#message-day-yesterday').text(),
-                'messages' : Messages.get('yesterday')
-            },
-            'today' : {
-                'dayTitle' : $('#message-day-today').text(),
-                'messages' : Messages.get('today')
-            }
-        },
+        url : '/src/ajax/telegram.php',
+        type : 'post',
+        dataType : 'json',
+        data : data,
         success: function(response) {
             showAlert(response.message, response.status, 'telegramMessageAlert');
             if ('success' === response.status) {
