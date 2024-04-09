@@ -9,9 +9,12 @@ abstract class Sender
 {
     protected TelegramMessageGenerator $telegramMessageGenerator;
 
+    public Messages $messages;
+
     public function __construct(Messages $messages)
     {
-        $this->telegramMessageGenerator = new TelegramMessageGenerator($messages->getMessages());
+        $this->messages = $messages;
+        $this->telegramMessageGenerator = new TelegramMessageGenerator($this->messages->getMessages());
     }
 
     abstract public function execute(): void;
