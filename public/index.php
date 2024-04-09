@@ -106,7 +106,7 @@ require_once __DIR__ . '/template/layouts/header.php';
                     <td>
                         <div class="task-item" data-id="<?=$item['id']?>">
                             <a href="<?=$item['url']?>" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-0-hover">
-                                <?=$item['id']?> <?=$item['name']?>
+                                <?=$item['name']?>
                             </a>
                             <div>
                                 <span>Author: </span>
@@ -166,7 +166,7 @@ require_once __DIR__ . '/template/layouts/header.php';
                     <td>
                         <div class="task-item" data-id="<?=$item['id']?>">
                             <a href="<?=$item['url']?>" class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-0-hover">
-                                <?=$item['id']?> <?=$item['name']?>
+                                <?=$item['name']?>
                             </a>
                             <div>
                                 <span>Author: </span>

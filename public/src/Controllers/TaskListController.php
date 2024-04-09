@@ -84,7 +84,8 @@ class TaskListController
         array_walk($tasks, function($task) use (&$list){
             $list[] = [
                 'id' => $task['id'],
-                'name' => $task['subject'],
+                'subject' => $task['subject'],
+                'name' => $task['id'] . ' ' . $task['subject'],
                 'author' => $task['author']['name'],
                 'status' => $task['status']['name'],
                 'url' => $this->getTrackerIssuesUrl() . $task['id'],
