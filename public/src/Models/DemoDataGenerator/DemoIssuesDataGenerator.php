@@ -2,6 +2,10 @@
 
 namespace App\Models\DemoDataGenerator;
 
+/**
+ * Class DemoIssuesDataGenerator
+ * @package AppBundle\Generator
+ */
 class DemoIssuesDataGenerator extends DemoDataGenerator
 {
     use DemoDataGeneratorTrait;
