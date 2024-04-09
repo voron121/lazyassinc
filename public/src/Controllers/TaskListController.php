@@ -84,12 +84,13 @@ class TaskListController
         array_walk($tasks, function($task) use (&$list){
             $list[] = [
                 'id' => $task['id'],
-                'subject' => $task['subject'],
                 'name' => $task['id'] . ' ' . $task['subject'],
+                'subject' => $task['subject'],
                 'author' => $task['author']['name'],
                 'status' => $task['status']['name'],
                 'url' => $this->getTrackerIssuesUrl() . $task['id'],
-                'description' => htmlentities($task['description'])
+                'description' => htmlentities($task['description']),
+                'comment' => ''
             ];
         });
         return $list;
