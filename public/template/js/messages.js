@@ -4,6 +4,10 @@
  */
 class Messages
 {
+    /**
+     * Represents a variable storage.
+     * @typedef {Array} Storage
+     */
     static storage = [];
 
     /**
@@ -31,11 +35,26 @@ class Messages
     }
 
     /**
-     * Will return data by key
-     * @param key
-     * @return {*}
+     * Retrieves the value associated with the given key from the storage.
+     *
+     * @param {string} key - The key to retrieve the value for.
+     * @return {object|undefined} - The value associated with the key, or undefined if the key does not exist.
      */
     static get(key) {
-        return this.storage[key];
+        const storedValue = this.storage[key];
+        if (storedValue) {
+            return Object.assign({}, storedValue);
+        } else {
+            return undefined;
+        }
+    }
+
+    /**
+     * Retrieves all items from the storage.
+     *
+     * @returns {Array} - An array containing all items in the storage.
+     */
+    static getAll() {
+        return this.storage;
     }
 }

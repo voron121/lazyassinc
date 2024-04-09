@@ -134,7 +134,6 @@ function addTaskIntoToDoList()
     // Do some interactive with UI
     $('#' + listId).append(snippet);
     $(this).prop('disabled', true);
-    return;
 }
 
 /**
@@ -145,12 +144,12 @@ function appendComment()
     const listId    = $(this).attr('list-id');
     const itemId    = $(this).attr('item-id');
     const comment   = $(this).val().trim();
-    let messages    = Messages.get(listId);
+    let messages    = Object.assign({}, Messages.get(listId));
     if (typeof messages[itemId] !== 'undefined') {
+        messages[itemId] = Object.assign({}, messages[itemId]);
         messages[itemId].comment = comment;
     }
-    Messages.append(listId, messages);
-    return;
+    Messages.set(listId, messages);
 }
 
 /**
@@ -169,7 +168,6 @@ function removeItemFromToDoList()
     snippet.remove();
     Messages.set(listId, messages);
     $('.add-into-list[item-id=' + itemId + '][list-id=' + listId + ']').prop('disabled', false);
-    return;
 }
 
 /**
