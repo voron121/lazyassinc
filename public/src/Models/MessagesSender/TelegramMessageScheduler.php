@@ -16,5 +16,9 @@ class TelegramMessageScheduler extends Sender
 
         $scheduledQueue[$schedulerParams['date']][$schedulerParams['time']] = $this->telegramMessageGenerator->getMessage();
         $memcached->set(Config::get('messagesScheduledQueue'), $scheduledQueue);
+        SenderResponse::setResponse(
+            'success',
+            ['status' => 'success', 'message' => 'The message is scheduled for delivery on ' . $schedulerParams['date'] . ' at ' . $schedulerParams['time']]
+        );
     }
 }

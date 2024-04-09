@@ -19,5 +19,9 @@ class TelegramMessageSender extends Sender
         if (!$request->isOk()) {
             throw new \RuntimeException('Something is gona wrong.');
         }
+        SenderResponse::setResponse(
+            'success',
+            ['status' => 'success', 'message' => 'Message successfully sent!']
+        );
     }
 }
