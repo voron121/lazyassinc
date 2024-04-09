@@ -7,7 +7,7 @@ namespace App;
  * For using should been renamed into Config.php
  * Each param is private field.
  */
-class Config
+final class Config
 {
     private static string $redmineHostUrl = '';
 
