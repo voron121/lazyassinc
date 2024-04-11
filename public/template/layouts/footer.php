@@ -1,10 +1,4 @@
 <!-- Modal -->
-<style>
-    /* Custom styles for dark mode */
-    .top-line-dark {
-        border-top: 1px solid #343a40; /* Use the desired color for dark mode */
-    }
-</style>
 <div class="modal fade" id="messageGeneratorModal" tabindex="-1" aria-labelledby="messageGeneratorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">

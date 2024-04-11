@@ -15,3 +15,8 @@
     <title>Redmine to telegram message generator</title>
 </head>
 <body>
+<style>
+    .top-line-dark {
+        border-top: 1px solid #343a40;
+    }
+</style>

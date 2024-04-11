@@ -2,8 +2,10 @@
 require_once 'vendor/autoload.php';
 
 use App\Controllers\TaskListController;
+use \App\Controllers\ToolBarController;
 
 try {
+    $ToolBar = new ToolBarController();
     $TaskListController = new TaskListController();
     $tasks      = $TaskListController->getTaskCollection();
     $list       = $tasks['yesterday'];
@@ -64,11 +66,39 @@ require_once __DIR__ . '/template/layouts/header.php';
         </div>
         </div>
         <div class="col pe-4">
-            <div class="col pe-2 text-end">
-                <button type="button" class="btn btn-sm btn-success generate-message-preview" data-bs-toggle="modal" data-bs-target="#messageGeneratorModal">
-                    <i class="bi bi-chat-square-text-fill"></i>
-                    Generate message
-                </button>
+            <div class="row pe-2">
+                <div class="col-4 text-end">
+                    Scheduled messages:
+                </div>
+                <div class="col-2 text-center">
+                    <a class="btn badge bg-body-secondary scheduled-counter" role="button" tabindex="0"  title="Total scheduled messages">
+                        <span><?=$ToolBar->getScheduledMessagesCount()?></span>
+                    </a>
+                    <div hidden>
+                        <div id="scheduled-counter-content">
+                            <table class="table table-dark table-sm">
+                                <tr>
+                                    <td>Messages will be sent today:</td>
+                                    <td><span class="badge bg-success"><?=$ToolBar->getTodayScheduledMessagesCount()?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>The messages were not sent:</td>
+                                    <td><span class="badge bg-body-secondary"><?=$ToolBar->getNotSentMessagesCount()?></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total messages:</td>
+                                    <td><span class="badge bg-body-secondary"><?=$ToolBar->getScheduledMessagesCount()?></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-end">
+                    <button type="button" class="btn btn-sm btn-success w-100 generate-message-preview" data-bs-toggle="modal" data-bs-target="#messageGeneratorModal">
+                        <i class="bi bi-chat-square-text-fill"></i>
+                        Generate message
+                    </button>
+                </div>
             </div>
         </div>
     </div>

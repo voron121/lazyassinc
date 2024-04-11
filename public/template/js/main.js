@@ -197,10 +197,30 @@ window.addEventListener('load', function ()
     const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl)
     })
+
+    const list = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    list.map((el) => {
+        let opts = {
+            animation: false,
+        }
+        if (el.hasAttribute('data-bs-content-id')) {
+            opts.content = document.getElementById(el.getAttribute('data-bs-content-id')).innerHTML;
+            opts.html = true;
+        }
+        new bootstrap.Popover(el, opts);
+    })
+
+    const popover = new bootstrap.Popover(document.querySelector('.scheduled-counter'), {
+        container: 'body',
+        html: true,
+        content: document.getElementById('scheduled-counter-content'),
+    })
+
     document.getElementById('messageGeneratorModal').addEventListener('hide.bs.modal', () => {
         document.getElementById('telegramMessageAlert').innerHTML = "";
         $('.js-send-telegram-message').prop('disabled', false);
     })
+
     $(document).on('click', '.add-into-list', addTaskIntoToDoList);
     $(document).on('click', '.remove', removeItemFromToDoList);
     $(document).on('blur', '.task-comment', appendComment);
